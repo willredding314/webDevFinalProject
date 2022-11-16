@@ -1,1 +1,1 @@
-Rate My Dorm project for CS4550
+## Rate My Dorm project for CS4550
