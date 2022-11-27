@@ -1,5 +1,5 @@
 import '../styles/globals.css'
-import { QueryClient, QueryClientProvider, ReactQueryDevtools } from 'react-query'
+import { QueryClient, QueryClientProvider } from 'react-query'
 
 import NavBar from '@/components/NavBar';
 import AnonymousNavBar from '@/components/AnonymousNavBar';
