@@ -2,10 +2,11 @@ import DormCard from '@/components/DormCard';
 import { useQuery } from 'react-query';
 
 const Featured = () => {
-    const { isLoading, error, data } = useQuery('dorms', () =>
-        fetch('http://localhost:4000/api/dorms').then((res) => res.json())
-    );
 
+    const { isLoading, error, data } = useQuery('dorms', async () => {
+        const res = await fetch(`http://localhost:4000/api/dorms`);
+        return res.json();
+    });
 
     if (isLoading) return (
         <div className="flex flex-col items-center justify-center h-full">
@@ -28,7 +29,7 @@ const Featured = () => {
     return (
         <div className="flex flex-row flex-wrap items-center justify-center h-full gap-10 p-10">
             {featuredDorms.slice(0, 4).map((dorm) => (
-                <DormCard dorm={dorm} />
+                <DormCard dorm={dorm} key={dorm._id} />
             ))}
         </div>
     );

@@ -27,10 +27,11 @@ const DormCard = ({dorm}) => {
                 </h1>
             
                 <p className="text-left text-eerie-black text-md">
-                    Northeastern University
-                    <p className="text-sm">
+                    <span>Northeastern University</span>
+                    <br />
+                    <span className="text-sm">
                         {`${dorm.location.street}, ${dorm.location.city}, ${dorm.location.state} ${dorm.location.zip}`}
-                    </p>
+                    </span>
                 </p> 
             </div>
 
