@@ -10,7 +10,7 @@ module.exports = {
         "eerie-dark": "#141414",
         "charcoal": "#2F4550",
         "cadet": "#586F7C",
-        "burnished-brown": "#A78682",
+        "carrot": "#F18F01",
         "cultured": "#EDF2F4"
       },
     },

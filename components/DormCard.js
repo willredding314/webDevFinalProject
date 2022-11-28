@@ -16,14 +16,14 @@ const DormCard = ({dorm}) => {
 
     return (
         <Link href={`/dorm/${dorm._id}`}>
-            <div className="bg-cultured rounded-lg p-5 drop-shadow-sm">
+            <div className="bg-eerie-dark rounded-lg p-5 drop-shadow-sm cursor-pointer hover:drop-shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
                 <figure className="px-full py-full">
                     <img src="https://placeimg.com/400/225/arch" alt="Dorms" className="rounded-md" />
                 </figure>
                 <div className="py-10 px-2 items-center text-center">
                     <h1 className="flex flex-row text-xl text-eerie-black font-base text-left gap-3">
-                        <span className="flex flex-row gap-1 text-charcoal">{dorm.name}</span> | 
-                        <span className="flex flex-row gap-1 text-charcoal">{dorm.rating.overall}</span>
+                        <span className="flex flex-row gap-1 text-carrot">{dorm.name}</span> | 
+                        <span className="flex flex-row gap-1 text-carrot">{dorm.rating.overall}</span>
                         <span className="flex flex-row gap-1 align-middle">{getRatingEmoji(dorm.rating.overall)}</span>
                     </h1>
                 
@@ -36,7 +36,7 @@ const DormCard = ({dorm}) => {
                     </p> 
                 </div>
 
-                <div className="flex flex-row justify-between bg-eerie-dark rounded-lg p-5 -mt-5">
+                <div className="flex flex-row justify-between bg-eerie-dark rounded-lg p-5 -mt-5 border border-cultured border-opacity-25 drop-shadow-sm cursor-pointer hover:drop-shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
                     <span className="text-cultured">
                         See More
                     </span>

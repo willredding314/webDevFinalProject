@@ -2,7 +2,7 @@ import { Html, Head, Main, NextScript } from 'next/document';
 
 export default function Document() {
     return (
-        <Html lang="en" className="bg-eerie-dark">
+        <Html lang="en" className="bg-cultured">
             <Head>
                 <meta charSet="utf-8" />
                 <meta name="description" content="Rate My Dorm" />
