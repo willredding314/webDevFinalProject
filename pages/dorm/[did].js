@@ -35,17 +35,17 @@ const Dorm = ({ dorm }) => {
             </div>
 
             <div className="flex flex-col bg-eerie-dark w-full max-w-3xl rounded-lg p-5">
-                <h1 className="text-2xl text-left font-medium text-eerie-black pb-2 text-carrot">
+                <h1 className="text-2xl text-left font-medium pb-2 text-carrot">
                     {dorm.name}
                 </h1>
 
                 <div className="flex flex-row gap-5">
                     <div className="flex flex-row gap-2">
-                        <p className="text-left text-eerie-black text-md">
+                        <p className="text-left text-cultured text-md">
                             <span>{`${dorm.location.street}, ${dorm.location.city}, ${dorm.location.state} ${dorm.location.zip}`}</span>
                         </p>
 
-                        <span className="flex flex-row gap-1">
+                        <span className="flex flex-row gap-1 text-cultured">
                             | {dorm.rating.overall}
                             <span className="flex flex-row gap-1 align-middle rating pt-1">
                                 {Array(Math.round(dorm.rating.overall)).fill().map((_, i) => (
