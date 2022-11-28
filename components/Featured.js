@@ -1,6 +1,10 @@
 import DormCard from '@/components/DormCard';
 import { useQuery } from 'react-query';
 
+
+import Error from '@/components/Error';
+import Loading from '@/components/Loading';
+
 const Featured = () => {
 
     const { isLoading, error, data } = useQuery('dorms', async () => {
@@ -9,19 +13,11 @@ const Featured = () => {
     });
 
     if (isLoading) return (
-        <div className="flex flex-col items-center justify-center h-full">
-            <h1 className="text-4xl font-bold">Featured Content</h1>
-            <p className="text-xl font-semibold">
-                Loading...
-            </p>
-        </div>
+        <Loading />
     )
 
     if (error) return (
-        <div className="flex flex-col items-center justify-center h-full">
-            <h1 className="text-4xl font-bold">Error</h1>
-            <p className="text-xl">There was an error loading the content</p>
-        </div>
+        <Error />
     )
     
     const featuredDorms = data.sort(() => Math.random() - 0.5).slice(0, 4);
