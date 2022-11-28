@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const Dorm = ({ dorm }) => {
-    dorm = dorm[0].Dorm;
+    dorm = dorm[0]
     
     return (
         <div className="flex flex-col items-center justify-center h-full px-10 py-2">

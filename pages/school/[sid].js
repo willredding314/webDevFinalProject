@@ -8,7 +8,7 @@ const School = ({ school }) => {
         <div className="flex flex-col items-center justify-center h-full px-10 py-2">
             <div className="bg-white rounded-lg shadow-lg p-10 w-full max-w-3xl">
                 <figure className="flex flex-col items-center justify-center">
-                    <img src="https://placeimg.com/400/225/arch" className="rounded-lg w-full" />
+                    <img src="https://placeimg.com/800/800/arch" className="rounded-lg w-full" />
                 <figcaption className="text-center">    
                         <h1 className="text-4xl font-bold text-left">{school.name}</h1>
                         <p className="text-xl font-semibold">{school.location.street}</p>
