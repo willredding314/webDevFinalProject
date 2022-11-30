@@ -6,6 +6,7 @@ import ImageCard from '@/components/ImageCard';
 import Loading from '@/components/Loading';
 import SchoolInfoCard from '@/components/SchoolInfoCard';
 
+// TODO: WHEN YOU ADD A DORM MAKE SURE TO ADD IT TO THE SCHOOL'S DORMS ARRAY IN THE DATABASE
 const School = ({ school }) => {
     school = school[0]
 
