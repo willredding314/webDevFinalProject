@@ -1,26 +1,38 @@
-import Link from "next/link";
-import DormCard from "@/components/DormCard";
+import { useQuery } from 'react-query';
+
+import DormCard from '@/components/DormCard';
+import Error from '@/components/Error';
+import ImageCard from '@/components/ImageCard';
+import Loading from '@/components/Loading';
+import SchoolInfoCard from '@/components/SchoolInfoCard';
 
 const School = ({ school }) => {
     school = school[0]
 
-    return (
-        <div className="flex flex-col items-center justify-center h-full px-10 py-2">
-            <div className="bg-white rounded-lg shadow-lg p-10 w-full max-w-3xl">
-                <figure className="flex flex-col items-center justify-center">
-                    <img src="https://placeimg.com/800/800/arch" className="rounded-lg w-full" />
-                <figcaption className="text-center">    
-                        <h1 className="text-4xl font-bold text-left">{school.name}</h1>
-                        <p className="text-xl font-semibold">{school.location.street}</p>
-                    </figcaption>
-                </figure>
-                <div className="flex flex-row gap-5 mt-5">
-                    <div className="flex flex-col gap-2">
-    
+    const { isLoading, error, data } = useQuery('dorms', async () => {
+        const res = await fetch(`http://localhost:4000/api/dorms`);
+        return res.json();
+    });
+        
 
-                    </div>
-                </div>
+    if (isLoading) return (
+        <Loading />
+    )
+
+    if (error) return (
+        <Error />
+    )
+
+    return (
+        <div className="flex flex-col items-center justify-center w-full h-full gap-5 px-10 py-2">
+            <ImageCard image={"https://placeimg.com/400/225/arch"} />
+            <SchoolInfoCard school={school} />
+            <div className="flex flex-row flex-wrap items-center justify-center h-full gap-10 p-10">
+                {data.map((dorm) => (
+                    <DormCard dorm={dorm} key={dorm._id} />
+                ))}
             </div>
+            
         </div>
     )
 };
@@ -50,5 +62,5 @@ const getStaticPaths = async () => {
     };
 };
 
-export { getStaticProps, getStaticPaths };
+export { getStaticPaths, getStaticProps };
 export default School;

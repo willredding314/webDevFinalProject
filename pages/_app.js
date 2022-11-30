@@ -5,12 +5,12 @@ import NavBar from '@/components/NavBar';
 import AnonymousNavBar from '@/components/AnonymousNavBar';
 
 const queryClient = new QueryClient({
-  defaultOptions: {
+  defaultOptions: { 
     queries: {
       refetchOnWindowFocus: false,
     },
   },
-});
+})
 
 function MyApp({ Component, pageProps }) {
   return (

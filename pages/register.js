@@ -6,10 +6,10 @@ const Register = () => {
 
     return (
         <div className="flex flex-row items-center justify-center">
-            <div className="flex flex-col bg-white rounded-lg shadow-lg p-10 w-fit gap-5">
+            <div className="flex flex-col gap-5 p-10 bg-white rounded-lg shadow-lg w-fit">
                 <div className="flex flex-col gap-2">
                     <label htmlFor="password" className="text-left text-gray text-md">Username</label>
-                    <Input type="username" name="username" id="username" placeholder="Username" className="" />
+                    <Input type="text" name="username" id="username" placeholder="Username" className="" />
 
                     <label htmlFor="password" className="text-left text-gray text-md">Email</label>
                     <Input type="email" name="email" id="email" placeholder="Email" className="" />
