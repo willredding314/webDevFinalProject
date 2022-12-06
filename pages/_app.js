@@ -1,5 +1,6 @@
 import '../styles/globals.css'
 import { QueryClient, QueryClientProvider } from 'react-query'
+import { useRouter } from "next/router"
 
 import NavBar from '@/components/NavBar';
 import AnonymousNavBar from '@/components/AnonymousNavBar';
@@ -13,10 +14,14 @@ const queryClient = new QueryClient({
 })
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+
+  const isLoggingInOrRegistering = router.pathname === '/login' || router.pathname === '/register'
+
   return (
     <QueryClientProvider client={queryClient} >
         {/* <NavBar name={"David"} /> */}
-        <AnonymousNavBar />
+        {isLoggingInOrRegistering ? null : <AnonymousNavBar />}
       <Component {...pageProps} />
     </QueryClientProvider>
   )

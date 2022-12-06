@@ -29,6 +29,21 @@ const DormInfoCard = ({ dorm }) => {
                     </p>
                 </div>
             </div>
+
+            <div className="flex flex-row-reverse justify-between mt-5">
+                <div className="flex flex-col gap-2">
+                    <h2 className="text-lg font-medium text-left text-eerie-dark">
+                        Add your rating
+                    </h2>
+                    <div className="flex flex-row gap-2">
+                        <span className="flex flex-row flex-wrap gap-1 text-xs align-middle rating">
+                            {Array(5).fill().map((_, i) => (
+                                <input type="radio" name="rating-1" className="w-6 h-6 cursor-pointer mask mask-star" value={i+1} key={i} />  
+                            ))} 
+                        </span> 
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

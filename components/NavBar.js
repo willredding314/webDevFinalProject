@@ -1,14 +1,17 @@
 import Button from "@/components/Button";
+import { useRouter } from 'next/router'
 
 const NavBar = () => {
 
+    const router = useRouter();
+
     return (
-        <div className="flex flex-row gap-10 justify-between p-5 w-full">
+        <div className="flex flex-row justify-between w-full gap-10 p-5">
             <div className="flex flex-row gap-5">
-                <Button link="/" children="Home" />
+                <Button link="/" children="Home" disabled={router.pathname === "/"} />
             </div>
 
-            <div className="flex flex-row gap-5">
+            <div className="flex flex-row gap-5 ">
                 <Button link="/profile" children="Profile" />
             </div>
         </div>

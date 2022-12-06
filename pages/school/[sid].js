@@ -28,7 +28,7 @@ const School = ({ school }) => {
         <div className="flex flex-col items-center justify-center w-full h-full gap-5 px-10 py-2">
             <ImageCard image={"https://placeimg.com/400/225/arch"} />
             <SchoolInfoCard school={school} />
-            <div className="flex flex-row flex-wrap items-center justify-center h-full gap-10 p-10">
+            <div className="flex flex-row flex-wrap items-center justify-center h-full gap-10 sm:p-10 md:p-0">
                 {data.map((dorm) => (
                     <DormCard dorm={dorm} key={dorm._id} />
                 ))}

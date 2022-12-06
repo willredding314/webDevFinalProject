@@ -17,7 +17,7 @@ const DormCard = ({dorm}) => {
     )
 
     if (error) return (
-        <LoadingCardError />
+        <Error />
     )
 
     return (
