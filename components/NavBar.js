@@ -1,18 +1,26 @@
-import Button from "@/components/Button";
+import ProfileNavBar from "@/components/ProfileNavBar";
+import AnonymousNavBar from "@/components/AnonymousNavBar";
+import { useState, useEffect } from "react";
+import { useContext } from "react";
+import { CurrentUserContext } from "@/components/CurrentUserProvider";
 
-const NavBar = () => {
+const Navbar = () => {
+    const [isActive, setIsActive] = useState(false);
+    const { currentUser } = useContext(CurrentUserContext);
+
+    useEffect(() => {
+        if (currentUser) {
+            setIsActive(true);
+        } else {
+            setIsActive(false);
+        }
+    }, [currentUser])
 
     return (
-        <div className="flex flex-row gap-10 justify-between p-5 w-full">
-            <div className="flex flex-row gap-5">
-                <Button link="/" children="Home" />
-            </div>
-
-            <div className="flex flex-row gap-5">
-                <Button link="/profile" children="Profile" />
-            </div>
+        <div>
+            {!!currentUser ? <ProfileNavBar name={currentUser.email} /> : <AnonymousNavBar />}
         </div>
     )
 }
 
-export default NavBar;
+export default Navbar;

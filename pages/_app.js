@@ -1,23 +1,26 @@
 import '../styles/globals.css'
 import { QueryClient, QueryClientProvider } from 'react-query'
+import { useRouter } from "next/router"
 
 import NavBar from '@/components/NavBar';
-import AnonymousNavBar from '@/components/AnonymousNavBar';
+import { CurrentUserContext, CurrentUserProvider} from '@/components/CurrentUserProvider';
 
 const queryClient = new QueryClient({
-  defaultOptions: {
+  defaultOptions: { 
     queries: {
       refetchOnWindowFocus: false,
     },
   },
-});
+})
 
 function MyApp({ Component, pageProps }) {
+
   return (
     <QueryClientProvider client={queryClient} >
-        {/* <NavBar name={"David"} /> */}
-        <AnonymousNavBar />
-      <Component {...pageProps} />
+      <CurrentUserProvider children={CurrentUserContext}>
+        <NavBar />
+        <Component {...pageProps} />
+      </CurrentUserProvider>
     </QueryClientProvider>
   )
 }

@@ -11,6 +11,7 @@ const Featured = () => {
         const res = await fetch(`http://localhost:4000/api/dorms`);
         return res.json();
     });
+        
 
     if (isLoading) return (
         <Loading />
@@ -20,11 +21,11 @@ const Featured = () => {
         <Error />
     )
     
-    const featuredDorms = data.sort(() => Math.random() - 0.5).slice(0, 4);
+    const featuredDorms = data.sort(() => Math.random() - 0.5).slice(0, 6);
 
     return (
         <div className="flex flex-row flex-wrap items-center justify-center h-full gap-10 p-10">
-            {featuredDorms.slice(0, 4).map((dorm) => (
+            {featuredDorms.slice(0, 6).map((dorm) => (
                 <DormCard dorm={dorm} key={dorm._id} />
             ))}
         </div>

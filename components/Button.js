@@ -1,9 +1,9 @@
 import Link from "next/link";
 
-const Button = ({ link, children, onClick }) => {
+const Button = ({ link, children, onClick, disabled=false }) => {
     return (
-        <button onClick={onClick} className="bg-charcoal font-semibold py-2 px-4 rounded shadow-md hover:bg-cadet transition duration-200 ease-in-out">
-            <Link href={link}>
+        <button onClick={onClick} className="px-4 py-2 font-semibold transition duration-200 ease-in-out rounded-md shadow-md to-charcoal from-cadet bg-gradient-to-r hover:shadow-lg">
+            <Link href={link} passHref className={disabled ? "pointer-events-none" : ""}>
                 <span className="font-normal text-cultured">{children}</span>
             </Link>
         </button>
