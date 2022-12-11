@@ -2,7 +2,9 @@ import Link from "next/link";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
 import { useQuery } from "react-query";
-import { useState} from "react";
+import { useState, useContext} from "react";
+import { useRouter } from "next/router";
+import { CurrentUserContext } from "@/components/CurrentUserProvider";
 
 const Login = () => {
 
@@ -10,20 +12,40 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [err, setErr] = useState(false);
 
-    const login = useQuery('register', () => {
-        const user = { email: email, password: password}
+    const { setCurrentUser } = useContext(CurrentUserContext)
 
-        if (user.email === '' || user.password === '') {
-            setErr(true);
-        }
-        return fetch('http://localhost:4000/api/login', {
+    const router = useRouter();
+    
+    const login = () => {
+        console.log(email, password)
+        return fetch('http://localhost:4000/api/auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify({
+                email: email,
+                password: password,
+            }),
+            credentials: 'include'
         })
-    })
+        .then((res) => {
+            if (res.status === 200) { 
+                router.push('/')  
+                return res.json();
+            } else if (res.status === 403) {
+                return "Incorrect email or password"
+            }
+        })
+        .then((data) => {
+            setCurrentUser(data)
+            if (data === "Incorrect email or password") {
+                setErr(true);
+            }
+        })
+    }
+
+
 
     return (
         <div className="flex flex-row items-center justify-center p-20">
@@ -38,7 +60,7 @@ const Login = () => {
                 </div>
 
                 <div className="flex flex-col gap-3">
-                    <Button link="/login" children="Login" onClick={login.refetch} />
+                    <Button link="/login" children="Login" onClick={login} />
 
                     <div className="flex flex-row gap-1">
                         <p className="text-left text-md">Don't have an account?</p>

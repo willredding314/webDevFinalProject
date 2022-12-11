@@ -24,8 +24,8 @@ const Comment = ({ comment }) => {
             <div className="flex flex-col w-full max-w-3xl gap-4 p-5 bg-white rounded-lg">
                 <div className="flex flex-row justify-between gap-2">
                     <div className="flex flex-row gap-2">
-                        <div class="inline-flex overflow-hidden relative justify-center items-center w-10 h-10 bg-gray-100 rounded-full dark:bg-gray-600">
-                            <span class="font-medium text-gray-600 dark:text-gray-300">{data[0].username.charAt(0).toUpperCase()}</span>
+                        <div className="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
+                            <span className="font-medium text-gray-600 dark:text-gray-300">{data[0].username.charAt(0).toUpperCase()}</span>
                         </div>
                         <div className="flex flex-col">
                             <h1 className="text-lg font-medium text-eerie-dark">{data[0].username}</h1>

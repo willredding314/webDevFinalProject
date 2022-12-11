@@ -3,7 +3,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import { useRouter } from "next/router"
 
 import NavBar from '@/components/NavBar';
-import AnonymousNavBar from '@/components/AnonymousNavBar';
+import { CurrentUserContext, CurrentUserProvider} from '@/components/CurrentUserProvider';
 
 const queryClient = new QueryClient({
   defaultOptions: { 
@@ -14,15 +14,13 @@ const queryClient = new QueryClient({
 })
 
 function MyApp({ Component, pageProps }) {
-  const router = useRouter();
-
-  const isLoggingInOrRegistering = router.pathname === '/login' || router.pathname === '/register'
 
   return (
     <QueryClientProvider client={queryClient} >
-        {/* <NavBar name={"David"} /> */}
-        {isLoggingInOrRegistering ? null : <AnonymousNavBar />}
-      <Component {...pageProps} />
+      <CurrentUserProvider children={CurrentUserContext}>
+        <NavBar />
+        <Component {...pageProps} />
+      </CurrentUserProvider>
     </QueryClientProvider>
   )
 }

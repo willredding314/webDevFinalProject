@@ -1,21 +1,26 @@
-import Button from "@/components/Button";
-import { useRouter } from 'next/router'
+import ProfileNavBar from "@/components/ProfileNavBar";
+import AnonymousNavBar from "@/components/AnonymousNavBar";
+import { useState, useEffect } from "react";
+import { useContext } from "react";
+import { CurrentUserContext } from "@/components/CurrentUserProvider";
 
-const NavBar = () => {
+const Navbar = () => {
+    const [isActive, setIsActive] = useState(false);
+    const { currentUser } = useContext(CurrentUserContext);
 
-    const router = useRouter();
+    useEffect(() => {
+        if (currentUser) {
+            setIsActive(true);
+        } else {
+            setIsActive(false);
+        }
+    }, [currentUser])
 
     return (
-        <div className="flex flex-row justify-between w-full gap-10 p-5">
-            <div className="flex flex-row gap-5">
-                <Button link="/" children="Home" disabled={router.pathname === "/"} />
-            </div>
-
-            <div className="flex flex-row gap-5 ">
-                <Button link="/profile" children="Profile" />
-            </div>
+        <div>
+            {!!currentUser ? <ProfileNavBar name={currentUser.email} /> : <AnonymousNavBar />}
         </div>
     )
 }
 
-export default NavBar;
+export default Navbar;

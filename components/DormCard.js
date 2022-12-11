@@ -5,8 +5,6 @@ import LoadingCard from '@/components/Loading';
 import Error from '@/components/Error';
 
 const DormCard = ({dorm}) => {
-    console.log(dorm.university);
-
     const { isLoading, error, data } = useQuery('university', async () => {
         const res = await fetch(`http://localhost:4000/api/schools/id/${dorm.university}`);
         return res.json();
