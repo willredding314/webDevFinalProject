@@ -5,15 +5,15 @@ import Error from "@/components/Error";
 
 const Bookmark = ({dorms}) => {
 
-  const { isLoading, error, data } = useQuery('dorms', async () => {
-    const res = await fetch(`http://localhost:4000/api/dorms`);
-    return res.json();
-  });
+    const { isLoading, error, data } = useQuery('dorms', async () => {
+        const res = await fetch(`http://localhost:4000/api/dorms`);
+        return res.json();
+    });
 
 
-  if (isLoading) return (
-      <Loading />
-  )
+    if (isLoading) return (
+        <Loading />
+    )
 
   if (error) return (
       <Error />
