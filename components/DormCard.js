@@ -8,11 +8,7 @@ const DormCard = ({dorm}) => {
 
     const { isLoading, error, data } = useQuery('university', async () => {
         const res = await fetch(`http://localhost:4000/api/schools/id/${dorm.university}`);
-        return [{
-            _id: "1",
-            _name: "Northeastern"
-        }]
-        //return res.json();
+        return res.json();
     });
 
     if (isLoading) return (
