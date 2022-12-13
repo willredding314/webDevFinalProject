@@ -1,10 +1,12 @@
 import Button from "@/components/Button";
 import { useRouter } from 'next/router'
+import {useContext} from "react";
+import {CurrentUserContext} from "@/components/CurrentUserProvider";
 
-const ProfileNavBar = ({ name }) => {
+const ProfileNavBar = ({ user }) => {
 
-    const router = useRouter();
-
+  const { currentUser } = useContext(CurrentUserContext);
+  const router = useRouter();
     return (
         <div className="flex flex-row justify-between w-full gap-10 p-5">
             <div className="flex flex-row gap-5">
@@ -12,8 +14,8 @@ const ProfileNavBar = ({ name }) => {
             </div>
 
             <div className="flex flex-row gap-5 ">
-                <Button link="/profile" children="Profile" />
-                <h1>{name}</h1>
+                <Button link={`/profile/${currentUser[0]._id}`} children="Profile" />
+                <h1>{currentUser.name}</h1>
             </div>
         </div>
     )

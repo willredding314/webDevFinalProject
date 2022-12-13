@@ -18,7 +18,7 @@ const Navbar = () => {
 
     return (
         <div>
-            {!!currentUser ? <ProfileNavBar name={currentUser.email} /> : <AnonymousNavBar />}
+            {!!currentUser ? <ProfileNavBar name={currentUser[0]} /> : <AnonymousNavBar />}
         </div>
     )
 }
