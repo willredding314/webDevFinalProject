@@ -5,6 +5,11 @@ import { useState } from "react";
 const Search = () => {
 
     const [search, setSearchOption] = useState("dorms");
+    const [targetVal, setTarget] = useState();
+
+    const changeHandler = event => {
+        setTarget(event.target.value)
+    }
 
     return (
         <div className="flex flex-col items-center justify-center w-screen h-screen gap-2 drop-shadow-sm">
@@ -13,12 +18,12 @@ const Search = () => {
             </h1>
 
             <h1 className="pb-2 text-xl font-medium text-center text-transparent cursor-pointer bg-clip-text bg-gradient-to-r from-cadet to-charcoal">
-                Enter a <span className="text-cadet" onClick={() => setSearchOption("dorms")}>Dorm</span> or <span className="text-cadet" onClick={() => setSearchOption("school")}>School</span> name to search.
+                Enter a <span className="text-cadet" onClick={() => setSearchOption("dorms")}>Dorm</span> or <span className="text-cadet" onClick={() => setSearchOption("schools")}>School</span> name to search.
             </h1>
 
-            <div className="flex flex-row justify-center w-full gap-3">
-                <Input placeholder={`Find ${search}...`} className="title" onChange={(e) => setText(e.target.value)} />
-                <Button link={`/${search}`} children="Search" />
+            <div className="flex flex-row gap-3 justify-center w-full">
+                <input type='text' placeholder={`Find ${search}...`} onChange={changeHandler} className="bg-cultured font-normal py-2 px-4 rounded transition duration-200 ease-in-out" />
+                <Button link={`/results/${search}/${targetVal}`} children="Search" />
             </div>
         </div>
     )
