@@ -7,7 +7,7 @@ import { CurrentUserContext } from "@/components/CurrentUserProvider";
 const Navbar = () => {
     const [isActive, setIsActive] = useState(false);
     const { currentUser } = useContext(CurrentUserContext);
-
+    
     useEffect(() => {
         if (currentUser) {
             setIsActive(true);
@@ -18,7 +18,7 @@ const Navbar = () => {
 
     return (
         <div>
-            {!!currentUser ? <ProfileNavBar name={currentUser.email} /> : <AnonymousNavBar />}
+            {!!currentUser ? <ProfileNavBar user={currentUser[0]} /> : <AnonymousNavBar />}
         </div>
     )
 }

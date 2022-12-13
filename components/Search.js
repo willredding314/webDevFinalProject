@@ -7,7 +7,7 @@ const Search = () => {
     const [search, setSearchOption] = useState("dorms");
 
     return (
-        <div className="flex flex-col items-center justify-center w-screen h-screen gap-2 drop-shadow-sm">
+        <div className="flex flex-col items-center justify-center w-full h-full gap-2 drop-shadow-sm">
             <h1 className="font-medium text-transparent text-8xl bg-clip-text bg-gradient-to-r from-cadet to-charcoal">
                 Rate My Dorm
             </h1>

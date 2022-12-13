@@ -15,19 +15,20 @@ const Bookmark = ({dorms}) => {
         <Loading />
     )
 
-  if (error) return (
-      <Error />
-  )
+    if (error) return (
+        <Error />
+    )
 
-  const bookmarkedDorms = data.filter((dorm) => (
-      dorms.includes(dorm._id)
-  ))
-  return (
-      bookmarkedDorms
-      .map((dorm) => (
-          <DormCard dorm={dorm}/>
-      ))
-  )
+    const bookmarkedDorms = data.filter((dorm) => (
+        dorms.includes(dorm._id)
+    ))
+    
+    return (
+        bookmarkedDorms
+        .map((dorm) => (
+            <DormCard dorm={dorm}/>
+        ))
+    )
 }
 
 export default Bookmark;
