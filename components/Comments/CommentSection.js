@@ -1,5 +1,5 @@
-import CommentInput from "@/components/CommentInput";
-import Comment from "@/components/Comment";
+import CommentInput from "@/components/Comments/CommentInput";
+import Comment from "@/components/Comments/Comment";
 
 const CommentSection = ({ props }) => {
 

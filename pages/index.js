@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Search from '@/components/Search';
-import Featured from '@/components/Featured';
+import Featured from '@/components/Featured/Featured';
 
 export default function Home() {  
 

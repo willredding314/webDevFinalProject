@@ -1,8 +1,8 @@
-import ProfileNavBar from "@/components/ProfileNavBar";
-import AnonymousNavBar from "@/components/AnonymousNavBar";
-import { useState, useEffect } from "react";
-import { useContext } from "react";
-import { CurrentUserContext } from "@/components/CurrentUserProvider";
+import ProfileNavBar from "@/components/Navigation/ProfileNavBar";
+import AnonymousNavBar from "@/components/Navigation/AnonymousNavBar";
+
+import { useState, useEffect, useContext } from "react";
+import { CurrentUserContext } from "@/providers/CurrentUserProvider";
 
 const Navbar = () => {
     const [isActive, setIsActive] = useState(false);
@@ -18,7 +18,7 @@ const Navbar = () => {
 
     return (
         <div>
-            {!!currentUser ? <ProfileNavBar user={currentUser[0]} /> : <AnonymousNavBar />}
+            {!!isActive ? <ProfileNavBar user={currentUser[0]} /> : <AnonymousNavBar />}
         </div>
     )
 }

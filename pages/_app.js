@@ -2,8 +2,8 @@ import '../styles/globals.css'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { useRouter } from "next/router"
 
-import NavBar from '@/components/NavBar';
-import { CurrentUserContext, CurrentUserProvider} from '@/components/CurrentUserProvider';
+import NavBar from '@/components/Navigation/NavBar';
+import { CurrentUserContext, CurrentUserProvider} from '@/providers/CurrentUserProvider';
 
 const queryClient = new QueryClient({
   defaultOptions: { 

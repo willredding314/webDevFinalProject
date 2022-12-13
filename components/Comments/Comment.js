@@ -1,5 +1,5 @@
 import moment from "moment/moment";
-import CommentInput from "@/components/CommentInput";
+import CommentInput from "@/components/Comments/CommentInput";
 
 import { useQuery } from "react-query";
 

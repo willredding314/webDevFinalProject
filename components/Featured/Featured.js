@@ -1,12 +1,12 @@
-import ProfileFeatured from '@/components/ProfileFeatured';
-import AnonymousFeatured from '@/components/AnonymousFeatured';
+import ProfileFeatured from '@/components/Featured/ProfileFeatured';
+import AnonymousFeatured from '@/components/Featured/AnonymousFeatured';
 
 import { useQuery } from 'react-query';
 import { useContext } from 'react';
-import { CurrentUserContext } from "@/components/CurrentUserProvider";
+import { CurrentUserContext } from "@/providers/CurrentUserProvider";
 
-import Error from '@/components/Error';
-import Loading from '@/components/Loading';
+import Error from '@/components/Pending/Error';
+import Loading from '@/components/Pending/Loading';
 
 const Featured = () => {
 

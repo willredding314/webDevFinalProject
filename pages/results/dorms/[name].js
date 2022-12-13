@@ -1,9 +1,9 @@
-import DormCard from "@/components/DormCard";
+import DormCard from "@/components/Dorm/DormCard";
 import { useRouter } from "next/router";
 import { useQuery } from 'react-query';
 
-import Error from '@/components/Error';
-import Loading from '@/components/Loading';
+import Error from '@/components/Pending/Error';
+import Loading from '@/components/Pending/Loading';
 
 const DormResults = () => {
 

@@ -1,4 +1,4 @@
-import DormCard from "./DormCard";
+import DormCard from "../Dorm/DormCard";
 
 const AnonymousFeatured = ({ dorms }) => {
 

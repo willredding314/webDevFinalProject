@@ -1,10 +1,10 @@
 import { useQuery } from 'react-query';
 
-import CommentSection from '@/components/CommentSection';
-import InfoCard from '@/components/DormInfoCard';
-import Error from '@/components/Error';
+import CommentSection from '@/components/Comments/CommentSection';
+import InfoCard from '@/components/Dorm/DormInfoCard';
+import Error from '@/components/Pending/Error';
 import ImageCard from '@/components/ImageCard';
-import Loading from '@/components/Loading';
+import Loading from '@/components/Pending/Loading';
 
 const Dorm = ({ dorm }) => {
     dorm = dorm[0];

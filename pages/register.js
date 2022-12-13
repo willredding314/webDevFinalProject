@@ -55,8 +55,8 @@ import { useForm } from 'react-hook-form';
 import * as Yup from 'yup';
 import { useRouter } from 'next/router';
 import bcrypt from 'bcryptjs';
-import Input from "@/components/Input";
-import Button from "@/components/Button";
+import Input from "@/components/Base/Input";
+import Button from "@/components/Base/Button";
 
 const SignUpForm = () => {
     const router = useRouter();

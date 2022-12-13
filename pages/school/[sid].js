@@ -1,10 +1,10 @@
 import { useQuery } from 'react-query';
 
-import DormCard from '@/components/DormCard';
-import Error from '@/components/Error';
+import DormCard from '@/components/Dorm/DormCard';
+import Error from '@/components/Pending/Error';
 import ImageCard from '@/components/ImageCard';
-import Loading from '@/components/Loading';
-import SchoolInfoCard from '@/components/SchoolInfoCard';
+import Loading from '@/components/Pending/Loading';
+import SchoolInfoCard from '@/components/School/SchoolInfoCard';
 
 // TODO: WHEN YOU ADD A DORM MAKE SURE TO ADD IT TO THE SCHOOL'S DORMS ARRAY IN THE DATABASE
 const School = ({ school }) => {

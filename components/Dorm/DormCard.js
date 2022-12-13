@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { useQuery } from 'react-query';
 import { ArrowRightIcon } from '@radix-ui/react-icons'
-import LoadingCard from '@/components/Loading';
-import Error from '@/components/Error';
+import LoadingCard from '@/components/Pending/Loading';
+import Error from '@/components/Pending/Error';
 
 const DormCard = ({dorm}) => {
 

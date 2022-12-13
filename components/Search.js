@@ -1,5 +1,5 @@
-import Button from "@/components/Button";
-import Input from "@/components/Input";
+import Button from "@/components/Base/Button";
+import Input from "@/components/Base/Input";
 import { useState } from "react";
 
 const Search = () => {
@@ -21,8 +21,8 @@ const Search = () => {
                 Enter a <span className="text-cadet" onClick={() => setSearchOption("dorms")}>Dorm</span> or <span className="text-cadet" onClick={() => setSearchOption("schools")}>School</span> name to search.
             </h1>
 
-            <div className="flex flex-row gap-3 justify-center w-full">
-                <input type='text' placeholder={`Find ${search}...`} onChange={changeHandler} className="bg-cultured font-normal py-2 px-4 rounded transition duration-200 ease-in-out" />
+            <div className="flex flex-row justify-center w-full gap-3">
+                <input type='text' placeholder={`Find ${search}...`} onChange={changeHandler} className="px-4 py-2 font-normal transition duration-200 ease-in-out rounded bg-cultured" />
                 <Button link={`/results/${search}/${targetVal}`} children="Search" />
             </div>
         </div>

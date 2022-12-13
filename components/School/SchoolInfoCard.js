@@ -1,6 +1,6 @@
-import Loading from '@/components/Loading';
-import Error from '@/components/Error';
-import DormCard from '@/components/DormCard';
+import Loading from '@/components/Pending/Loading';
+import Error from '@/components/Pending/Error';
+import DormCard from '@/components/Dorm/DormCard';
 import { useQuery } from 'react-query';
 import { PersonIcon } from '@radix-ui/react-icons'
 

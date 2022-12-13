@@ -1,9 +1,9 @@
-import SchoolInfoCard from "@/components/SchoolInfoCard";
+import SchoolInfoCard from "@/components/School/SchoolInfoCard";
 import { useRouter } from "next/router";
 import { useQuery } from 'react-query';
 
-import Error from '@/components/Error';
-import Loading from '@/components/Loading';
+import Error from '@/components/Pending/Error';
+import Loading from '@/components/Pending/Loading';
 
 const SchoolResults = () => {
 

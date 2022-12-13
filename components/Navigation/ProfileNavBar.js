@@ -1,4 +1,4 @@
-import Button from "@/components/Button";
+import Button from "@/components/Base/Button";
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import Link from "next/link";

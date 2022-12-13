@@ -1,7 +1,7 @@
-import DormCard from "@/components/DormCard";
+import DormCard from "@/components/Dorm/DormCard";
 import {useQuery} from "react-query";
-import Loading from "@/components/Loading";
-import Error from "@/components/Error";
+import Loading from "@/components/Pending/Loading";
+import Error from "@/components/Pending/Error";
 
 const Bookmark = ({dorms}) => {
 

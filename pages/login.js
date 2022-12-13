@@ -1,10 +1,10 @@
 import Link from "next/link";
-import Input from "@/components/Input";
-import Button from "@/components/Button";
+import Input from "@/components/Base/Input";
+import Button from "@/components/Base/Button";
 import { useQuery } from "react-query";
 import { useState, useContext} from "react";
 import { useRouter } from "next/router";
-import { CurrentUserContext } from "@/components/CurrentUserProvider";
+import { CurrentUserContext } from "@/providers/CurrentUserProvider";
 
 const Login = () => {
 
