@@ -8,6 +8,7 @@ import Loading from '@/components/Pending/Loading';
 const SchoolResults = () => {
 
     const router = useRouter()
+    console.log(router.query.name)
 
     const { isLoading, error, data } = useQuery("results", async () => {
         const res = await fetch(`http:///localhost:4000/api/results/schools/${router.query.name}`);
