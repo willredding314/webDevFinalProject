@@ -4,20 +4,21 @@ import {useContext} from "react";
 import {CurrentUserContext} from "@/components/CurrentUserProvider";
 import Settings from "@/components/Settings";
 import Friends from "@/components/Friends";
+import ProfileInfo from "@/components/ProfileInfo";
 
 
 const Profile = ({ profile }) => {
-    const { currentUser } = useContext(CurrentUserContext);
-    profile = profile[0];
+
+  const { currentUser } = useContext(CurrentUserContext);
+
+  profile = profile[0];
 
     console.log(profile);
-    //TODO add profile settings on left side of page when user logged in
     return (
         <div className="grid grid-cols-3 divide-x">
             <div className=" grid justify-center ">
                <div>
-                   <h5 className="text-2xl text-center font-bold tracking-tight text-eerie-dark">{profile.username}</h5>
-                   <Settings user={profile}/>
+                 {(currentUser !== null && currentUser !== undefined && profile._id === currentUser[0]._id) ? <Settings user={profile}/> : <ProfileInfo user={profile}/> }
                </div>
             </div>
             <div className=" grid justify-center">

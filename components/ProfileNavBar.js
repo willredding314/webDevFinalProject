@@ -5,7 +5,12 @@ import {CurrentUserContext} from "@/components/CurrentUserProvider";
 
 const ProfileNavBar = ({ user }) => {
 
-  const { currentUser } = useContext(CurrentUserContext);
+  let { currentUser } = useContext(CurrentUserContext);
+
+  const Logout = () => {
+
+  }
+
   const router = useRouter();
     return (
         <div className="flex flex-row justify-between w-full gap-10 p-5">
@@ -15,6 +20,7 @@ const ProfileNavBar = ({ user }) => {
 
             <div className="flex flex-row gap-5 ">
                 <Button link={`/profile/${currentUser[0]._id}`} children="Profile" />
+                <Button link={`/`} onClick={Logout}>Logout</Button>
                 <h1>{currentUser.name}</h1>
             </div>
         </div>
