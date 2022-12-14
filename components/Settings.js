@@ -15,8 +15,9 @@ const Settings = ({user}) => {
     fetch(`http://localhost:4000/api/users/${currentUser[0]._id}`, {
       method: 'PUT',
       body: JSON.stringify({
-        
-        "bio": document.getElementById("bio").value
+        "email": document.getElementById("email").value,
+        "bio": document.getElementById("bio").value,
+        "password": document.getElementById("userPass").value
       }),
       headers: {
         'Content-Type':'application/json'
@@ -32,9 +33,11 @@ const Settings = ({user}) => {
           <div>
             <span><h5 className="text-2xl text-center font-bold tracking-tight text-eerie-dark inline-block">{user.username}</h5>
               {(currentUser !== null && currentUser !== undefined && user._id === currentUser[0]._id && !editProfile)
-                  ? <button className="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="button" onClick={changeUpdate}>Edit</button>
-                  : <button className="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="button" onClick={changeUpdate}>Cancel</button>}
+                  ? <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="button" onClick={changeUpdate}>Edit</button>
+                  : <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-5" type="button" onClick={changeUpdate}>Cancel</button>}
             </span>
+            <br/>
+            <br/>
           <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             <div>
               <label className="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
@@ -55,17 +58,25 @@ const Settings = ({user}) => {
           </div>
           :
           <div>
-            <span><h5 className="text-2xl text-center font-bold tracking-tight text-eerie-dark inline-block">{user.username}</h5>
+          <span><h5 className="text-2xl text-center font-bold tracking-tight text-eerie-dark inline-block">{user.username}</h5>
             {(currentUser !== null && currentUser !== undefined && user._id === currentUser[0]._id && !editProfile)
-                ? <button className="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="button" onClick={changeUpdate}>Edit</button>
-                : <button className="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="button" onClick={changeUpdate}>Cancel</button>}
+                ? <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-5" type="button" onClick={changeUpdate}>Edit</button>
+                : <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="button" onClick={changeUpdate}>Cancel</button>}
             </span>
+            <br/>
+            <br/>
             <h2 className="text-2xl font-bold tracking-tight text-eerie-dark">Bio</h2>
             <p>{user.bio}</p>
+            <br/>
+            <br/>
             <h2 className="text-2xl font-bold tracking-tight text-eerie-dark">University</h2>
             <p>{user.university}</p>
+            <br/>
+            <br/>
             <h2 className="text-2xl font-bold tracking-tight text-eerie-dark">Major</h2>
             <p>{user.major}</p>
+            <br/>
+            <br/>
           </div>
   );
 }
