@@ -14,6 +14,7 @@ const Profile = ({ profile }) => {
     profile = profile[0];
 
     console.log(profile);
+    console.log(profile.bookmarks)
     return (
         <div className="grid grid-cols-3 divide-x">
             <div className=" grid justify-center ">
@@ -24,7 +25,7 @@ const Profile = ({ profile }) => {
             <div className=" grid justify-center">
                 <div>
                     <h5 className="text-2xl text-center font-bold tracking-tight text-eerie-dark">Bookmarks</h5>
-                    <Bookmark dorms={profile.bookmarks}/>
+                    <Bookmark dorms={profile.bookmarks} />
                 </div>
             </div>
             <div className="grid justify-center">

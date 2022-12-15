@@ -11,6 +11,8 @@ const Featured = () => {
     const { currentUser } = useContext(CurrentUserContext);
     const { dorm } = useContext(DormContext);
 
+    console.log(dorm)
+
     return (
         <div className="flex flex-row flex-wrap items-center justify-center h-full gap-10 p-10">
             {currentUser ? <ProfileFeatured dorms={dorm} currentUser={currentUser} /> : <AnonymousFeatured dorms={dorm} />}

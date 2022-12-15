@@ -25,8 +25,8 @@ const SignUpForm = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [university, setUniversity] = useState(null)
-    const [major, setMajor] = useState(null)
+    const [university, setUniversity] = useState('')
+    const [major, setMajor] = useState('')
 
     const signup = async (data) => {
         return fetch('http://localhost:4000/api/auth/signup', {
@@ -38,7 +38,7 @@ const SignUpForm = () => {
             body: JSON.stringify({
                     username: username,
                     email: email,
-                    password: await bcrypt.hash(password, 10),
+                    password: password,
                     bio: '',
                     comments: [],
                     bookmarks: [],
