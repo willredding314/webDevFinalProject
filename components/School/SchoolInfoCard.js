@@ -18,7 +18,6 @@ const SchoolInfoCard = ({ school }) => {
     if (error) return (
         <Error />
     )
-    
 
     return ( 
 
@@ -37,14 +36,14 @@ const SchoolInfoCard = ({ school }) => {
                 <div className="flex-col bg-gray-100 text-gray-800 text-sm font-sm inline-flex px-2.5 py-2 rounded mr-2">
                     <div className="py-2 md:w-auto md:flex-row-reverse">
                         <span className="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">
-                            {new Intl.NumberFormat().format(school.stats.size)}
+                            {new Intl.NumberFormat().format(school.stats?.size)}
                             <PersonIcon className="inline w-3 h-3 mb-1 ml-1" />
                         </span>
                         <span className="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">
-                            {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(school.stats.cost)}
+                            {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(school.stats?.cost)}
                         </span>
                         <span className="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">
-                            {school.stats.ownership}
+                            {school.stats?.ownership}
                         </span>
                     </div>
                     <div>

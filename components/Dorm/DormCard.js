@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { useQuery } from 'react-query';
-import { ArrowRightIcon } from '@radix-ui/react-icons'
+import { ArrowRightIcon, PlusIcon, CheckIcon } from '@radix-ui/react-icons'
 import LoadingCard from '@/components/Pending/Loading';
 import Error from '@/components/Pending/Error';
 
-const DormCard = ({dorm}) => {
+const DormCard = ({ dorm }) => {
 
     const { isLoading, error, data } = useQuery('university', async () => {
         const res = await fetch(`http://localhost:4000/api/schools/id/${dorm.university}`);
@@ -19,15 +19,16 @@ const DormCard = ({dorm}) => {
         <Error />
     )
 
+    console.log(data)
+
     return (
         <div className="max-w-sm bg-white border rounded-lg shadow-md border-eerie-dark/20">
             <Link href={`/dorm/${dorm._id}`}>
-                <img className="rounded-t-lg" src="https://placeimg.com/400/225/arch" alt={dorm.name} />
+                <img className="rounded-t-lg" src="https://placeimg.com/500/500/arch" alt={dorm.name} />
             </Link>
             <div className="p-5">
-                <h5 className="text-2xl font-bold tracking-tight text-eerie-dark">{dorm.name} <span className="font-normal text-cadet">| {dorm.rating.overall}</span></h5>
+                <h5 className="text-2xl font-bold tracking-tight text-eerie-dark">{dorm.name} <span className="font-normal text-cadet">| {dorm.rating?.overall}</span></h5>
                 <p className="mb-3 font-normal text-cadet">
-                    
                     <Link href={`/school/${data[0]._id}`} className="text-cadet hover:text-eerie-dark">{data[0].name}</Link>
                     <br />
                     <span className="text-sm text-cadet">{`${dorm.location.street}, ${dorm.location.city}, ${dorm.location.state} ${dorm.location.zip}`} </span>

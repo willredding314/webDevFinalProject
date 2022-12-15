@@ -1,26 +1,26 @@
 import { useQuery } from 'react-query';
+import DormCard from "@/components/Dorm/DormCard";
+import Loading from "@/components/Pending/Loading";
 
-// WIP
 const ProfileFeatured = ({ dorms, currentUser }) => {
     const allDorms = dorms
+    const getDormsFromSchool = async (school) => {
+        const res = await fetch(`http://localhost:4000/api/dorms/school/${school}`);
+        return res.json();
+    }
+    const { isLoading, error, data } = useQuery('dorms', () => getDormsFromSchool(currentUser.university));
 
-    console.log('allDorms: ', allDorms)
-    console.log('currentUser: ', currentUser)
+    if (isLoading) return (
+        <Loading />
+    )
 
-    console.log('currentUser.university: ', currentUser.university)
-    console.log('dorm.university: ', allDorms[0].university)
-    
-    const featuredDorms = allDorms.filter(dorm => dorm.university === currentUser.university).sort(() => Math.random() - 0.5).slice(0, 6);
-
-    // if (featuredDorms.length < 6) {
-
-    // }    
-
-    console.log(featuredDorms)
+    if (error) return (
+        <Error />
+    )
 
     return (
         <div className="flex flex-row flex-wrap items-center justify-center h-full gap-10 p-10">
-            {featuredDorms.slice(0, 6).map((dorm) => (
+            {data.slice(0,6).map((dorm) => (
                 <DormCard dorm={dorm} key={dorm._id} />
             ))}
         </div>

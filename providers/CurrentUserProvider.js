@@ -1,28 +1,35 @@
-import { useState, useEffect, createContext } from 'react';
-import { useQuery } from 'react-query';
+import { createContext } from 'react';
+import { useQuery} from 'react-query';
+import Loading from "@/components/Pending/Loading";
+import Error from "@/components/Pending/Error";
 
 const CurrentUserContext = createContext();
 
 const CurrentUserProvider = ({ children }) => {
-    const [currentUser, setCurrentUser] = useState(null);
-
-    const { isLoading, error, data } = useQuery('currentUser', () => {
+    let { isLoading, error, data: currentUser } = useQuery('currentUser', () => {
         return fetch('http://localhost:4000/api/auth/profile', { credentials: 'include' })
-        .then((res) => {
-            if (res.status === 200) {
-                return res.json();
-            } else {
-                return null;
-            }
-        })
+            .then((res) => {
+                if (res.status === 200) {
+                    return res.json();
+                } else {
+                    return null;
+                }
+            })
     });
 
-    useEffect(() => {
-        setCurrentUser(data);
-    }, [data])
+    currentUser = Array.isArray(currentUser) ? currentUser[0] : currentUser
+
+    const setCurrentUser = (user) => {
+        currentUser = [user];
+    }
+
+    if (isLoading) return <Loading />
+    if (error) return <Error />
+
+    console.log(currentUser);
 
     return (
-        <CurrentUserContext.Provider value={{ currentUser, isLoading, setCurrentUser }}>
+        <CurrentUserContext.Provider value={{ currentUser, setCurrentUser }}>
             {children}
         </CurrentUserContext.Provider>
     )

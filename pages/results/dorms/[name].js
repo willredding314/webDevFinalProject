@@ -4,6 +4,8 @@ import { useQuery } from 'react-query';
 
 import Error from '@/components/Pending/Error';
 import Loading from '@/components/Pending/Loading';
+import SearchBar from "@/components/SearchBar";
+import SchoolInfoCard from "@/components/School/SchoolInfoCard";
 
 const DormResults = () => {
 
@@ -23,13 +25,12 @@ const DormResults = () => {
   )
 
   return (
-    <main className="grid grid-cols-1 grid-rows-3 h-screen">
-      <div className="flex flex-col row-span-1 p-5 gap-20">
+      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center h-full gap-10">
+        <SearchBar />
         {data.map((dorm) => (
-          <DormCard dorm={dorm} key={dorm._id} />
+            <DormCard dorm={dorm} key={dorm._id} />
         ))}
-      </div>
-    </main>
+      </main>
   )
 }
 

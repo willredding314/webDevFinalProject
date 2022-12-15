@@ -1,4 +1,11 @@
+import { SchoolContext } from "@/providers/SchoolProvider";
+import { useContext} from "react";
+
 const DormInfoCard = ({ dorm }) => {
+
+    const { school } = useContext(SchoolContext);
+
+    const schoolName = school?.find((school) => school._id === dorm.university).name;
 
     return (
         <div className="flex flex-col w-full max-w-3xl p-5 bg-white border rounded-lg shadow-md border-errie-dark/20">
@@ -24,7 +31,7 @@ const DormInfoCard = ({ dorm }) => {
             <div className="flex flex-row gap-5">
                 <div className="flex flex-row gap-2">
                     <p className="flex flex-col text-left text-charcoal text-md">
-                        <span>Northeastern University</span>
+                        <span>{schoolName}</span>
                         <span>{`${dorm.location.street}, ${dorm.location.city}, ${dorm.location.state} ${dorm.location.zip}`}</span>
                     </p>
                 </div>

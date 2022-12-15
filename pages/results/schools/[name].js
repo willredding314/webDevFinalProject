@@ -4,13 +4,14 @@ import { useQuery } from 'react-query';
 
 import Error from '@/components/Pending/Error';
 import Loading from '@/components/Pending/Loading';
+import SearchBar from "@/components/SearchBar";
 
 const SchoolResults = () => {
 
     const router = useRouter()
 
     const { isLoading, error, data } = useQuery("results", async () => {
-        const res = await fetch(`http:///localhost:4000/api/results/schools/${router.query.name}`);
+        const res = await fetch(`http://localhost:4000/api/results/schools/${router.query.name}`);
         return res.json();
     });
 
@@ -23,31 +24,13 @@ const SchoolResults = () => {
       )
 
     return (
-      <main className="grid grid-cols-1 grid-rows-3 h-screen">
-        <div className="flex flex-col row-span-1 p-5 gap-20">
+      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center h-full gap-10">
+          <SearchBar />
           {data.map((school) => (
               <SchoolInfoCard school={school} key={school._id} />
           ))}
-        </div> 
       </main>
     )
   }
 
-//const getStaticProps = async ({ params: { name } } ) => {
-//    const res = await fetch(`http://localhost:4000/api/results/dorms/${name}`);
-//    const dorms = await res.json();
-//
-//    return {
-//        props: {
-//            dorms,
-//        },
-//    };
-//};
-//{data.map((school) => (
-//    <SchoolInfo school={school} key={school._id} />
-//    ))}
-//
-
-
-//export { getStaticProps };
 export default SchoolResults;

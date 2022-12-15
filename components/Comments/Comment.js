@@ -2,6 +2,7 @@ import moment from "moment/moment";
 import CommentInput from "@/components/Comments/CommentInput";
 
 import { useQuery } from "react-query";
+import Link from "next/link";
 
 const Comment = ({ comment }) => {
 
@@ -10,7 +11,6 @@ const Comment = ({ comment }) => {
         return res.json();
     });
     
-    console.log(data)
     if (isLoading) return (
         <p>Loading...</p>
     )
@@ -25,7 +25,7 @@ const Comment = ({ comment }) => {
                 <div className="flex flex-row justify-between gap-2">
                     <div className="flex flex-row gap-2">
                         <div className="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
-                            <span className="font-medium text-gray-600 dark:text-gray-300">{data[0].username.charAt(0).toUpperCase()}</span>
+                            <Link href={`/profile/${data[0]._id}`} className="font-medium text-gray-600 dark:text-gray-300">{data[0].username.charAt(0).toUpperCase()}</Link>
                         </div>
                         <div className="flex flex-col">
                             <h1 className="text-lg font-medium text-eerie-dark">{data[0].username}</h1>
@@ -44,8 +44,7 @@ const Comment = ({ comment }) => {
                         <p className="text-sm font-medium text-eerie-dark">{comment.text}</p>
                     </div>
                 </div>
-                <CommentInput placeholder="Reply" rows={1} />
-            </div>  
+            </div>
         )
     )
 }
